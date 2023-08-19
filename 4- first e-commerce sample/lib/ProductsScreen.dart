@@ -22,7 +22,6 @@ class _ProductScreenState extends State<ProductScreen> {
     List<Product> products = [p1, p2, p3];
     // List<Product> products = widget.user.SavedProducts; // Use user's saved products list
 
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(

@@ -5,7 +5,8 @@ import 'User.dart';
 class ProductCard extends StatefulWidget {
   Product product;
   User user;
-  ProductCard({Key? key, required this.product, required this.user}) : super(key: key);
+  late bool isProductSaved; // Track whether the product is saved or not
+  ProductCard({Key? key, required this.product, required this.user, this.isProductSaved = false}) : super(key: key);
   // ProductCard({Key? key}) : super(key: key);
 
   @override
@@ -13,17 +14,25 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
-  late bool isProductSaved; // Track whether the product is saved or not
 
   @override
   void initState() {
     super.initState();
-    isProductSaved = widget.user.isProductSaved(widget.product);
+    widget.isProductSaved = widget.user.isProductSaved(widget.product);
+    // for(int i = 0; i< widget.user.SavedProducts.length; i++){
+    //   print();
+    // }
+    // for(Product product in widget.user.SavedProducts){
+    //   print(product.name);
+    // }
   }
-
 
   @override
   Widget build(BuildContext context) {
+    for(Product product in widget.user.SavedProducts){
+      print(product.name);
+    }
+    widget.isProductSaved = widget.user.isProductSaved(widget.product);
     return Column(
       children: [
         Padding(
@@ -47,19 +56,22 @@ class _ProductCardState extends State<ProductCard> {
                 ),
                 IconButton(
                   icon: Icon(
-                    isProductSaved ? Icons.favorite : Icons.favorite_border,
+                    // isProductSaved = widget.user.isProductSaved(widget.product);
+                    widget.isProductSaved ? Icons.favorite : Icons.favorite_border,
                     color: Colors.red,
                   ),
                   onPressed: () {
                     setState(() {
-                      isProductSaved = !isProductSaved; // Toggle the saved state
-                      if (isProductSaved) {
+                      widget.isProductSaved = !widget.isProductSaved; // Toggle the saved state
+                      if (widget.isProductSaved) {
                         // Add the product to the user's saved products
                         // widget.product.addToSavedProducts();
                         widget.user.addToSavedProducts(widget.product);
+                        widget.user.addToCartSubtotal(widget.product.price);
                       } else {
                         // Remove the product from the user's saved products
                         widget.user.removeFromSavedProducts(widget.product);
+                        widget.user.removeFromCartSubtotal(widget.product.price);
                       }
                     });
                   },

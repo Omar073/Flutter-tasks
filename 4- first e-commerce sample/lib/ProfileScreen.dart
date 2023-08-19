@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'LoginPage.dart';
 import 'User.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -41,6 +42,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 fontSize: 30,
               ),
             ),
+            Text('Cart subtotal: ${widget.user.CartSubtotal}',
+              style: const TextStyle(
+              color: Colors.teal,
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              ),
+            ),
+            SizedBox(height: 80,),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 15),
+                  shape: const StadiumBorder(),
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                ),
+                onPressed: (){
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                }, child: Text("Logout"))
           ],
         ),
       ),

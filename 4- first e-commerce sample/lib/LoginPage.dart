@@ -35,13 +35,24 @@ class _LoginPageState extends State<LoginPage> {
             const Expanded(
               flex: 1,
               child: Center(
-                child: Text(
-                  "Shopify",
-                  style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.shopping_bag_outlined,
+                    size: 50,
+                    color: Colors.blue),
+                    SizedBox(width: 10),
+                    Text(
+                      "Shopify",
+                      style: TextStyle(
+                        fontSize: 50,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
+
               ),
             ),
             // Add spacing below the "Shopify" text
@@ -111,11 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                           }
                         }
 
-                        if (kDebugMode) {
-                          print('Sign-in button pressed');
-                          print('Email: $email');
-                          print('Password: $password');
-                        }
+                        // if (kDebugMode) {
+                        //   print('Sign-in button pressed');
+                        //   print('Email: $email');
+                        //   print('Password: $password');
+                        // }
                       },
                       child: const Text('Log-in'),
                     ),

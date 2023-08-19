@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'Product.dart';
 import 'ProductCard.dart';
 import 'User.dart';
 
@@ -14,12 +12,13 @@ class SavedProductsScreen extends StatefulWidget {
 }
 
 class _SavedProductsScreenState extends State<SavedProductsScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.add_shopping_cart),
-        title: const Text("Saved Products Screen"),
+        title: const Text("Shopping Cart"),
         centerTitle: true,
       ),
       body:
