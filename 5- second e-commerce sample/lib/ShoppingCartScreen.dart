@@ -16,7 +16,8 @@ class _SavedProductsScreenState extends State<SavedProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar
+        (
         leading: const Icon(Icons.add_shopping_cart),
         title: const Text("Shopping Cart"),
         centerTitle: true,
@@ -28,11 +29,8 @@ class _SavedProductsScreenState extends State<SavedProductsScreen> {
               Wrap(
                 spacing: 10, // spacing between items horizontally
                 runSpacing: 10, // spacing between items vertically
-                children: widget.user.SavedProducts.map<Widget>((p) => ProductCard(product: p, user: widget.user, onChange: () { setState(() {}); },)).toList(), // ! thoroughly understand this line
-                // children: widget.user.SavedProducts.map<Widget>((p) => ProductCard(product: p, user: widget.user)).toList(), // ! thoroughly understand this line
+                children: widget.user.ShoppingCart.map<Widget>((p) => ProductCard(product: p, user: widget.user, onChange: () { setState(() {}); },)).toList(), // ! thoroughly understand this line
                 // Pass both product and user to ProductCard
-                // ! you can use setState() to update the list of products as soon as it is changed
-                // ! VoidCallback on changes
               ),
               const SizedBox(height: 65), // Add spacing below the wrapped items
             ],
@@ -41,3 +39,5 @@ class _SavedProductsScreenState extends State<SavedProductsScreen> {
     );
   }
 }
+
+

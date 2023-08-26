@@ -4,9 +4,10 @@ import 'User.dart';
 
 class ProductCard extends StatefulWidget {
   Product product;
+  final VoidCallback onChange;
   User user;
   late bool isProductSaved; // Track whether the product is saved or not
-  ProductCard({Key? key, required this.product, required this.user, this.isProductSaved = false}) : super(key: key);
+  ProductCard({Key? key, required this.product, required this.user, this.isProductSaved = false, required this.onChange}) : super(key: key);
   // ProductCard({Key? key}) : super(key: key);
 
   @override
